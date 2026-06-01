@@ -304,7 +304,6 @@ export default function App() {
       </div>
 
       {/* HERO */}
-      {/* CORRECTION 1 : id="about" au lieu de id="hero" */}
       <section id="about" style={{
         minHeight: "100vh",
         display: "grid",
