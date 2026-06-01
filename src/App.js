@@ -295,16 +295,7 @@ export default function App() {
         </button>
       </nav>
 
-      {/* Menu mobile déroulant */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        {navItems.map(([l, id]) => (
-          <button key={id} onClick={() => scrollTo(id)}>{l}</button>
-        ))}
-        <button className="mobile-cta" onClick={() => scrollTo("contact")}>Engagez-moi</button>
-      </div>
-
       {/* HERO */}
-      {/* CORRECTION 1 : id="about" au lieu de id="hero" */}
       <section id="about" style={{
         minHeight: "100vh",
         display: "grid",
