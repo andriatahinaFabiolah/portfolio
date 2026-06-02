@@ -352,7 +352,7 @@ export default function App() {
               </button>
 
               <a
-                href="/CV.pdf"
+                href="/cv.pdf"
                 download="CV_ANDRIATAHINA_Fabiolah.pdf"
                 style={{
                   display: "inline-block",
