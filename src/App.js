@@ -107,22 +107,6 @@ export default function App() {
     setSending(true);
     setError(null);
 
-    // Mode test : si les clés EmailJS ne sont pas configurées, on simule juste l'envoi
-    if (
-      EMAILJS_SERVICE_ID === "service_zmhs4oe" ||
-      EMAILJS_TEMPLATE_ID === "template_93nesbs" ||
-      EMAILJS_PUBLIC_KEY === "sOz6TQCQ-utHVgrPE"
-    ) {
-      // Simulation pour tester le formulaire sans EmailJS
-      setTimeout(() => {
-        setSent(true);
-        setSending(false);
-        setForm({ name: "", email: "", message: "" });
-        setTimeout(() => setSent(false), 5000);
-      }, 1000);
-      return;
-    }
-
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
