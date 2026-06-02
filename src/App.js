@@ -108,6 +108,7 @@ export default function App() {
     setError(null);
 
     try {
+      console.log("Envoi:", { name: form.name, email: form.email, message: form.message });
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
