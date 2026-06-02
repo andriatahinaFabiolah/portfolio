@@ -98,9 +98,9 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  const EMAILJS_SERVICE_ID = "service_zmhs4oe";   
-  const EMAILJS_TEMPLATE_ID = "template_93nesbs"; 
-  const EMAILJS_PUBLIC_KEY = "sOz6TQCQ-utHVgrPE";   
+  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;  
+  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
