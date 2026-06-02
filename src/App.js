@@ -98,15 +98,9 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  // CORRECTION 5 : Formulaire avec EmailJS
-  // Pour activer l'envoi réel :
-  // 1. Créer un compte sur emailjs.com (gratuit)
-  // 2. Créer un service Email (Gmail par exemple)
-  // 3. Créer un template avec les variables {{from_name}}, {{from_email}}, {{message}}
-  // 4. Remplacer les 3 valeurs ci-dessous par tes vraies clés EmailJS
-  const EMAILJS_SERVICE_ID = "VOTRE_SERVICE_ID";   // ex: "service_abc123"
-  const EMAILJS_TEMPLATE_ID = "VOTRE_TEMPLATE_ID"; // ex: "template_xyz789"
-  const EMAILJS_PUBLIC_KEY = "VOTRE_PUBLIC_KEY";   // ex: "aBcDeFgHiJkLmNoPq"
+  const EMAILJS_SERVICE_ID = "service_zmhs4oe";   
+  const EMAILJS_TEMPLATE_ID = "template_93nesbs"; 
+  const EMAILJS_PUBLIC_KEY = "sOz6TQCQ-utHVgrPE";   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
