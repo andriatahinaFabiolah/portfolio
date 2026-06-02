@@ -112,8 +112,8 @@ export default function App() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: form.name,
-          from_email: form.email,
+          name: form.name,
+          email: form.email,
           message: form.message,
         },
         EMAILJS_PUBLIC_KEY
