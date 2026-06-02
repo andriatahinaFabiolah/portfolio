@@ -109,9 +109,9 @@ export default function App() {
 
     // Mode test : si les clés EmailJS ne sont pas configurées, on simule juste l'envoi
     if (
-      EMAILJS_SERVICE_ID === "VOTRE_SERVICE_ID" ||
-      EMAILJS_TEMPLATE_ID === "VOTRE_TEMPLATE_ID" ||
-      EMAILJS_PUBLIC_KEY === "VOTRE_PUBLIC_KEY"
+      EMAILJS_SERVICE_ID === "service_zmhs4oe" ||
+      EMAILJS_TEMPLATE_ID === "template_93nesbs" ||
+      EMAILJS_PUBLIC_KEY === "sOz6TQCQ-utHVgrPE"
     ) {
       // Simulation pour tester le formulaire sans EmailJS
       setTimeout(() => {
