@@ -872,11 +872,11 @@ export default function App() {
               GitHub
             </a>
 
-            {/* TODO: Remplace le '#' par ton URL LinkedIn une fois ton profil créé */}
-            <a href="#" style={{ fontSize: "13px", color: c.textHint, textDecoration: "none", fontWeight: 500, cursor: "default", opacity: 0.5 }}
-              title="LinkedIn — bientôt disponible" onClick={e => e.preventDefault()}>
+            {/* TODO: Remplace ce <span> par un <a href="TON_URL_LINKEDIN"> une fois ton profil créé */}
+            <span style={{ fontSize: "13px", color: c.textHint, fontWeight: 500, cursor: "default", opacity: 0.4 }}
+              title="LinkedIn — bientôt disponible">
               LinkedIn
-            </a>
+            </span>
 
             <a href="mailto:andriatahinafabiolah@gmail.com"
               style={{ fontSize: "13px", color: c.textMuted, textDecoration: "none", fontWeight: 500, transition: "color 0.2s" }}
