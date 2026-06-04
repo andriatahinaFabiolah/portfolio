@@ -24,7 +24,7 @@ const skills = {
   ],
   "Backend": [
     { name: "Node.js",    icon: `${DEV_CDN}/nodejs/nodejs-original.svg` },
-    { name: "Express.js", icon: `${DEV_CDN}/express/express-original.svg`, invertOnLight: true },
+    { name: "Express.js", icon: `${DEV_CDN}/express/express-original.svg`, invertOnDark: true },
     { name: "PHP",        icon: `${DEV_CDN}/php/php-original.svg` },
     { name: "Symfony",    icon: `${DEV_CDN}/symfony/symfony-original.svg`, invertOnDark: true },
   ],
@@ -233,7 +233,6 @@ export default function App() {
   /* ──────────────────────────────────────────────────────── */
   return (
     <div style={{fontFamily:"'Plus Jakarta Sans',sans-serif",background:c.bg,color:c.text,minHeight:"100vh",transition:"background 0.3s, color 0.3s"}}>
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
       <style>{`
         @keyframes blobA{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-25px) scale(1.08)}66%{transform:translate(-15px,15px) scale(0.95)}}
         @keyframes blobB{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-25px,20px) scale(1.05)}66%{transform:translate(20px,-10px) scale(0.97)}}
