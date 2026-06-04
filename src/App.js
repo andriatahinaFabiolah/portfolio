@@ -152,7 +152,8 @@ export default function App() {
   const [menuOpen,     setMenuOpen]     = useState(false);
   const [scrolled,     setScrolled]     = useState(false);
   const [dark,         setDark]         = useState(false);
-  const [slideIndices, setSlideIndices] = useState(projects.map(() => 0));
+  const [slideIndices,   setSlideIndices]   = useState(projects.map(() => 0));
+  const [carouselPaused, setCarouselPaused] = useState(false);
   const formRef = useRef(null);
   const role    = useTypewriter(ROLES);
 
@@ -195,6 +196,16 @@ export default function App() {
     document.addEventListener("click", close);
     return () => document.removeEventListener("click", close);
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (carouselPaused) return;
+    const interval = setInterval(() => {
+      setSlideIndices(prev =>
+        prev.map((s, i) => (s + 1) % projects[i].images.length)
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [carouselPaused]);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -492,11 +503,11 @@ export default function App() {
             {projects.map((p, pi) => (
               <Reveal key={p.id} delay={pi * 100}>
                 <div style={{background:c.bgAlt,border:`1.5px solid ${c.border}`,borderRadius:"16px",overflow:"hidden",transition:"all 0.3s ease",height:"100%",display:"flex",flexDirection:"column"}}
-                  onMouseEnter={e => {e.currentTarget.style.borderColor=p.accent;e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow=`0 16px 40px ${p.accent}22`}}
-                  onMouseLeave={e => {e.currentTarget.style.borderColor=c.border;e.currentTarget.style.transform="none";e.currentTarget.style.boxShadow="none"}}>
+                  onMouseEnter={e => {setCarouselPaused(true);e.currentTarget.style.borderColor=p.accent;e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow=`0 16px 40px ${p.accent}22`}}
+                  onMouseLeave={e => {setCarouselPaused(false);e.currentTarget.style.borderColor=c.border;e.currentTarget.style.transform="none";e.currentTarget.style.boxShadow="none"}}>
 
                   {/* ── Carousel ── */}
-                  <div style={{position:"relative",overflow:"hidden",aspectRatio:"16/9",background:"#0f172a",flexShrink:0}}>
+                  <div style={{position:"relative",overflow:"hidden",height:"200px",background:"#0f172a",flexShrink:0}}>
                     <img
                       src={p.images[slideIndices[pi]]}
                       alt={`${p.title} - vue ${slideIndices[pi]+1}`}
