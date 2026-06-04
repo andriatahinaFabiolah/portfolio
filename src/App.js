@@ -31,6 +31,7 @@ const projects = [
       "Application de suivi en temps réel du matériel informatique — affectation aux directions, automatisation des processus internes et optimisation de la gestion des équipements de l'institution.",
     accent: "#6366f1",
     link: "https://github.com/andriatahinaFabiolah/gestion-materiel",
+    image: "/project-materiel.PNG",
   },
   {
     id: 2, number: "02",
@@ -43,6 +44,7 @@ const projects = [
       "Supervision des virements bancaires automatisés via triggers MySQL. Interfaces distinctes admin & client avec historique complet des transactions et gestion des flux financiers.",
     accent: "#0ea5e9",
     link: "https://github.com/andriatahinaFabiolah/Banking_app",
+    image: "/project-banking.PNG",
   },
   {
     id: 3, number: "03",
@@ -55,6 +57,7 @@ const projects = [
       "Visualisation interactive de l'algorithme du sac à dos — programmation dynamique O(n·W). Outil pédagogique pour comprendre et explorer les fondamentaux algorithmiques.",
     accent: "#f59e0b",
     link: "https://github.com/andriatahinaFabiolah/knapsack-problem",
+    image: "/project-knapsack.PNG",
   },
 ];
 
@@ -663,29 +666,35 @@ export default function App() {
             {projects.map((p, i) => (
               <Reveal key={p.id} delay={i * 100}>
                 <div className="projects-row" style={{
-                  display: "grid", gridTemplateColumns: "80px 1fr auto",
-                  alignItems: "center", gap: "32px",
+                  display: "grid", gridTemplateColumns: "80px 1fr 280px",
+                  alignItems: "stretch", gap: "0",
                   background: dark ? "#1e293b" : "#fafaf9",
                   border: `1.5px solid ${c.border}`,
-                  borderRadius: "16px", padding: "28px 32px",
+                  borderRadius: "16px", overflow: "hidden",
                   transition: "all 0.3s ease", cursor: "pointer",
                 }}
                   onMouseEnter={e => {
                     e.currentTarget.style.borderColor = p.accent;
                     e.currentTarget.style.background = dark ? "#273448" : "#fff";
-                    e.currentTarget.style.transform = "translateX(6px)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = `0 12px 40px ${p.accent}22`;
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.borderColor = c.border;
                     e.currentTarget.style.background = dark ? "#1e293b" : "#fafaf9";
                     e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.boxShadow = "none";
                   }}>
 
-                  <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: "monospace", color: p.accent, opacity: 0.5 }}>
-                    {p.number}
+                  {/* Numéro */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "28px 0", borderRight: `1px solid ${c.border}` }}>
+                    <span style={{ fontSize: "13px", fontWeight: 800, fontFamily: "monospace", color: p.accent, opacity: 0.5 }}>
+                      {p.number}
+                    </span>
                   </div>
 
-                  <div>
+                  {/* Contenu */}
+                  <div style={{ padding: "24px 28px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px", flexWrap: "wrap" }}>
                       <span style={{ fontSize: "20px" }}>{p.icon}</span>
                       <h3 style={{ fontSize: "18px", fontWeight: 700, color: c.text, margin: 0 }}>{p.title}</h3>
@@ -710,19 +719,34 @@ export default function App() {
                     </div>
                   </div>
 
-                  <a className="proj-arrow" href={p.link} target="_blank" rel="noopener noreferrer" style={{
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    width: "44px", height: "44px",
-                    background: dark ? "#334155" : "#f5f5f4",
-                    border: `1.5px solid ${c.border}`,
-                    borderRadius: "10px", textDecoration: "none",
-                    fontSize: "18px", flexShrink: 0, transition: "all 0.2s",
-                    color: c.textMuted,
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = p.accent; e.currentTarget.style.borderColor = p.accent; e.currentTarget.style.color = "#fff"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = dark ? "#334155" : "#f5f5f4"; e.currentTarget.style.borderColor = c.border; e.currentTarget.style.color = c.textMuted; }}>
-                    ↗
-                  </a>
+                  {/* Screenshot */}
+                  <div style={{ position: "relative", borderLeft: `1px solid ${c.border}`, overflow: "hidden", minHeight: "160px" }}>
+                    <img
+                      src={p.image}
+                      alt={`Aperçu ${p.title}`}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block", transition: "transform 0.4s ease" }}
+                      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+                      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                    />
+                    {/* Overlay gradient */}
+                    <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to right, ${dark ? "#1e293b" : "#fafaf9"}22, transparent 30%)`, pointerEvents: "none" }} />
+                    {/* Bouton GitHub */}
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" style={{
+                      position: "absolute", bottom: "12px", right: "12px",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      width: "36px", height: "36px",
+                      background: dark ? "rgba(15,23,42,0.85)" : "rgba(255,255,255,0.9)",
+                      backdropFilter: "blur(8px)",
+                      border: `1.5px solid ${c.border}`,
+                      borderRadius: "10px", textDecoration: "none",
+                      fontSize: "16px", color: c.text,
+                      transition: "all 0.2s", boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                    }}
+                      onMouseEnter={e => { e.currentTarget.style.background = p.accent; e.currentTarget.style.borderColor = p.accent; e.currentTarget.style.color = "#fff"; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = dark ? "rgba(15,23,42,0.85)" : "rgba(255,255,255,0.9)"; e.currentTarget.style.borderColor = c.border; e.currentTarget.style.color = c.text; }}>
+                      ↗
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             ))}
