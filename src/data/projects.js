@@ -37,6 +37,18 @@ export const projects = [
     link: "https://github.com/andriatahinaFabiolah/knapsack-problem",
     images: ["/project-knapsack-2.PNG", "/project-knapsack.PNG"],
   },
+  {
+    id: 4, number: "04",
+    title: "Portfolio Personnel",
+    category: "React.js",
+    badge: "Live · Vercel",
+    icon: "🌐",
+    tech: ["React.js", "EmailJS", "Vercel", "CSS-in-JS"],
+    description: "Portfolio moderne avec dark mode, typewriter animé, carrousel de projets, section parcours et SEO optimisé. Architecture découpée en composants réutilisables.",
+    accent: "#8b5cf6",
+    link: "https://github.com/andriatahinaFabiolah/portfolio",
+    images: ["/project-portfolio-1.PNG", "/project-portfolio-2.PNG", "/project-portfolio-3.PNG"],
+  },
 ];
 
 export { DEV_CDN };
