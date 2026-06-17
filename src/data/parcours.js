@@ -32,5 +32,5 @@ export const formations = [
 export const contactInfo = [
   { icon: "✉️", label: "Email",        value: "andriatahinafabiolah@gmail.com", href: "mailto:andriatahinafabiolah@gmail.com" },
   { icon: "🐙", label: "GitHub",       value: "andriatahinaFabiolah",           href: "https://github.com/andriatahinaFabiolah" },
-  { icon: "📍", label: "Localisation", value: "Fianarantsoa, Madagascar",        href: null },
+  { icon: "📍", label: "Localisation", value: "Antananarivo, Madagascar",        href: null },
 ];
